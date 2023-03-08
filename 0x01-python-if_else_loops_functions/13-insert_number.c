@@ -3,26 +3,46 @@
 #include <stdio.h>
 #include "lists.h"
 /**
-* main - check the code for Holberton School students.
-*
-* Return: Always 0.
+* instert_node - inserts in ordered list
+* @head: head of list
+* @number: number to put in
+* Return: address of new node
 */
-int main(void)
+listint_t *insert_node(listint_t **head, int number)
 {
-listint_t *head;
-head = NULL;
-add_nodeint_end(&head, 0);
-add_nodeint_end(&head, 1);
-add_nodeint_end(&head, 2);
-add_nodeint_end(&head, 3);
-add_nodeint_end(&head, 4);
-add_nodeint_end(&head, 98);
-add_nodeint_end(&head, 402);
-add_nodeint_end(&head, 1024);
-print_listint(head);
-printf("-----------------\n");
-insert_node(&head, 1025);
-print_listint(head);
-free_listint(head);
-return (0);
+listint_t *tmp,*new;
+tmp = *head;
+new = malloc(sizeof(listint_t));
+if(new == NULL)
+return(NULL);
+new->n = number;
+new->next = NULL;
+if((*head) == NULL)
+{
+*head = new;
+return(new);
+}
+else if((*head)->n >= number)
+{
+new->next = *head;
+*head = new;
+return(new);
+}
+else
+{
+while(tmp->next != NULL)
+{
+if(tmp->next->n >= number)
+{
+new->next = tmp->next;
+tmp->next = new;
+return (new);
+}
+tmp = tmp->next;
+}
+new->next = NULL;
+tmp->next = new;
+return(new);
+}
+return(NULL);
 }
