@@ -2,5 +2,4 @@
 #an empty rectangle class
 
 class Rectangle:
-    #my rectangle description
     pass
