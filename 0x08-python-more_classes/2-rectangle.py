@@ -6,15 +6,23 @@ Defining my class Rectangle
 
 class Rectangle:
     def __init__(self, width=0, height=0):
+
+         """Initializing a new Rectangle instance
+        Args:
+            width (int): is the width of the rectangle.
+            height (int): is the height of the rectangle.
+        """
         self.width = width
         self.height = height
 
     @property
     def width(self):
+        """Accessor of the rectangle's width."""
         return self.__width
 
     @width.setter
     def width(self, value):
+        """Accessor of the rectangle's length"""
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         elif value < 0:
