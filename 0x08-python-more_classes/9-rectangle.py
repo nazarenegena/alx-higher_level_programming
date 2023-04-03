@@ -5,19 +5,28 @@ Defining my class Rectangle
 
 
 class Rectangle:
+    class Rectangle:
+    """Represent a rectangle."""
+
     def __init__(self, width=0, height=0, number_of_instances=0, print_symbol='#'):
+        """Initializing a new Rectangle instance.
+        Args:
+            width (int):  width of new rectangle.
+            height (int): height of new rectangle.
+        """
         self.width = width
         self.height = height
-        self.number_of_instances += number_of_instances 
+        self.number_of_instances += number_of_instances
         self.print_symbol = print_symbol
-        
+
     def __str__(self):
         return self.print_symbol
-        
+
     @property
     def width(self):
+        """Get/set the width of the rectangle."""
         return self.__width
-    
+
     @width.setter
     def width(self, value):
         if not isinstance(value, int):
@@ -26,11 +35,12 @@ class Rectangle:
             raise ValueError("width must be >= 0")
         else:
             self.__width = value
-    
+
     @property
     def height(self):
+        """Get/set the height of the rectangle."""
         return self.__height
-    
+
     @height.setter
     def height(self, value):
         if not isinstance(value, int):
@@ -39,18 +49,18 @@ class Rectangle:
             raise ValueError("height must be >= 0")
         else:
             self.__height = value
-          
-   
-         
+
+
+
     def area(self):
         return self.__width * self.__height
-    
+
     def perimeter(self):
         perim = (self.__height + self.__width)*2
         if(self.__width == 0 or self.__height == 0):
             perim = 0
         return perim
-        
+
     def __str__(self):
         if self.__width == 0 or self.__height == 0:
             return ''
@@ -60,14 +70,14 @@ class Rectangle:
             if i != self.__height - 1:
                 rectang += '\n'
         return rectang
-        
+
     def __repr__(self):
          return eval((f"Rectangle({self.width}, {self.height})"))
-         
+
     def __del__(self):
         self.number_of_instances += number_of_instances
         print("Bye rectangle...")
-        
+
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
         if rect_1 is not isinstance(Rectangle):
@@ -78,7 +88,7 @@ class Rectangle:
             return rect_1
         else:
             return rect_2
-            
+
     @classmethod
     def square(cls, size=0):
         self.width = size
