@@ -53,20 +53,27 @@ class Rectangle:
         if(self.__width == 0 or self.__height == 0):
             perim = 0
         return perim
-        
-    def __str__(self):
+     def __str__(self):
+        """Returning the printable representation of the Rectangle.
+        Represents the rectangle with the # character.
+        """
         if self.__width == 0 or self.__height == 0:
-            return ''
-        rectang = ''
+            return ("")
+
+        rectang = []
         for i in range(self.__height):
-            rectang += '#' * self.__width
+            [rectang.append('#') for j in range(self.__width)]
             if i != self.__height - 1:
-                rectang += '\n'
-        return rectang
-        
+                rect.append("\n")
+        return ("".join(rectang))
+
     def __repr__(self):
-         return eval((f"Rectangle({self.width}, {self.height})"))
-         
+        """Returning the string representation of the Rectangle."""
+        rect = "Rectangle(" + str(self.__width)
+        rect += ", " + str(self.__height) + ")"
+        return (rect)
+
     def __del__(self):
-        self.number_of_instances += number_of_instances
+        """Print a message for every deletion of a Rectangle."""
         print("Bye rectangle...")
+
