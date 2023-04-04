@@ -5,13 +5,20 @@ Defining my class Rectangle
 
 
 class Rectangle:
+    """Representing my rectangle."""
     def __init__(self, width=0, height=0, number_of_instances=0, print_symbol='#'):
+        """Initializing a new Rectangle.
+        Args:
+            width (int): width of the new rectangle.
+            height (int): height of the new rectangle.
+        """
         self.width = width
         self.height = height
         self.number_of_instances += number_of_instances 
         self.print_symbol = print_symbol
         
     def __str__(self):
+        """Getting the width of the Rectangle."""
         return self.print_symbol
         
     @property
@@ -29,6 +36,7 @@ class Rectangle:
     
     @property
     def height(self):
+        """setting the height of the Rectangle."""
         return self.__height
     
     @height.setter
