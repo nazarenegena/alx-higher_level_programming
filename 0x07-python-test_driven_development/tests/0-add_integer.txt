@@ -1,0 +1,6 @@
+""" the test file module """
+>>> from 0-add_integer.py import *
+>>> def add_integer(10, 23)
+return 33
+>>> def add_integer(44, 52.3)
+return 96
