@@ -5,13 +5,20 @@ Defining my class Rectangle
 
 
 class Rectangle:
+    """Representing my rectangle."""
     def __init__(self, width=0, height=0, number_of_instances=0):
+        """Initializing a new Rectangle.
+        Args:
+            width (int): new rectangle width.
+            height (int): new rectangle height
+        """
         self.width = width
         self.height = height
         self.number_of_instances += number_of_instances 
         
     @property
     def width(self):
+        """Getter of the rectangle width."""
         return self.__width
     
     @width.setter
