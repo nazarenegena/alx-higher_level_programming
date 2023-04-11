@@ -3,5 +3,5 @@
 
 
 def lookup(obj):
-     """Return action is that of a list of the objects attributes."""
+    """Return action is that of a list of the objects attributes."""
     return (dir(obj))
