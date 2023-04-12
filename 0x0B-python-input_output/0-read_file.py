@@ -13,4 +13,4 @@ def read_file(filename=""):
         file_contents = f.read()
 
         """print the file contents"""
-        print(file_contents)
+        print(file_contents, end="")
