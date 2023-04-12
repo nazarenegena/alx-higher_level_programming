@@ -1,28 +1,15 @@
 #!/usr/bin/python3
 
-import sys
+"""
+this function that writes an Object to a text file
+"""
 
-from save_to_json_file import save_to_json_file
+import json
 
-from load_from_json_file import load_from_json_file
+def save_to_json_file(my_obj, filename):
 
+    """the value is an object to a text file that uses a JSON representation"""
 
-""" Defining the name of the file to save the list to """
-
-filename = 'add_item.json'
-
-""" Loading the existing list from the file """
-try:
-    my_list = load_from_json_file(filename)
-
-except:
-
-    my_list = []
-
-""" Adding the command-line arguments to the list """
-
-my_list.extend(sys.argv[1:])
-
-""" Save the updated list to the file """
-
-save_to_json_file(my_list, filename)
+    with open(filename, 'w', encoding='utf-8') as f:
+        
+        json.dump(my_obj, f)
