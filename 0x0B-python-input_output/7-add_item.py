@@ -13,16 +13,16 @@ filename = 'add_item.json'
 
 """ Loading the existing list from the file """
 try:
-    myList = load_from_json_file(filename)
+    my_list = load_from_json_file(filename)
 
 except:
 
-    myList = []
+    my_list = []
 
 """ Adding the command-line arguments to the list """
 
-myList.extend(sys.argv[1:])
+my_list.extend(sys.argv[1:])
 
 """ Save the updated list to the file """
 
-save_to_json_file(myList, filename)
+save_to_json_file(my_list, filename)
