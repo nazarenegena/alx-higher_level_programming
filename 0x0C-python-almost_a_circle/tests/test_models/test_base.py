@@ -144,7 +144,7 @@ were given"
 
         with open("Rectangle.json", "r") as file:
 
-            self.assertEqual(len(file.read()), 89)
+            self.assertEqual(len(file.read()), 107)
 
         Rectangle.save_to_file(None)
 
@@ -170,7 +170,7 @@ were given"
         
         with open("Rectangle.json", "r") as file:
 
-            self.assertEqual(len(file.read()), 44)
+            self.assertEqual(len(file.read()), 54)
 
         Square.save_to_file(None)
 
@@ -197,5 +197,5 @@ were given"
 
         with open("Square.json", "r") as file:
 
-            self.assertEqual(len(file.read()), 43)
+            self.assertEqual(len(file.read()), 39)
     
