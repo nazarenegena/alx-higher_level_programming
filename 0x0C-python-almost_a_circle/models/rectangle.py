@@ -2,7 +2,10 @@
 
 from models.base import Base
 
-""" instance of rectangle class"""
+
+""" inherited from the base class"""
+
+
 
 class Rectangle(Base):
 
@@ -21,7 +24,7 @@ class Rectangle(Base):
     @property
     def width(self):
         return self._width
-
+    
     """ set width value"""
     @width.setter
     def width(self, value):
@@ -30,12 +33,12 @@ class Rectangle(Base):
          if value <= 0:
              raise ValueError("width must be > 0")
          self._width = value
-
+    
     """get height value"""
     @property
     def height(self):
         return self._height
-
+    
     """ set height value"""
     @height.setter
     def height(self, value):
@@ -44,12 +47,12 @@ class Rectangle(Base):
         if value <= 0:
             raise ValueError("height must be > 0")
         self._height = value
-
+      
     """get x value"""
     @property
     def x(self):
         return self._x
-
+    
     """ set x value"""
     @x.setter
     def x(self, value):
@@ -58,12 +61,12 @@ class Rectangle(Base):
          if value < 0:
              raise ValueError("x must be >= 0")
          self._x = value
-
+     
     """get y value"""
     @property
     def y(self):
         return self._y
-
+    
     """ set y value"""
     @y.setter
     def y(self, value):
@@ -76,13 +79,13 @@ class Rectangle(Base):
     """ public class area"""
     def area(self):
         """ calculating area of rectangle"""
-        return self._height * self._width
-
+        return self._height * self._width     
+    
     """ public method that displays the rectangle with # character"""
     def display(self):
         for i in range(self._height):
             print("#" * self._width)
-
+    
 
     """ method to update and overide the __str__ method """
 
@@ -93,11 +96,11 @@ class Rectangle(Base):
 
         if args:
              for i, arg in enumerate(args):
-                  if i == 0:
+                  if i == 0:  
                      if arg is None:
-                          raise ValueError(" the id attribute can't be None")
+                          raise ValueError(" the id attribute can't be None")    
                      else:
-                       self.id = arg
+                       self.id = arg   
                   elif i == 1:
                      self.width = arg
                   elif i == 2:
@@ -105,8 +108,8 @@ class Rectangle(Base):
                   elif i == 3:
                      self.x = arg
                   elif i == 4:
-                     self.y = arg
-
+                     self.y = arg    
+        
         elif kwargs:
 
             """ checking through the key value pairs """
@@ -126,5 +129,27 @@ class Rectangle(Base):
                 self.x = j
               elif k == "y":
                 self.y = j
+
+   
+    def to_dictionary(self):
+
+        """Returning the value dictionary that reps a Rectangle."""
+
+        return {
+          
+            "width": self.width,
+            "height": self.height,
+            "x": self.x,
+            "y": self.y
+        }
+
+    def __str__(self):
+
+        """ the value to be returned is the print() and str() representation of the Rectangle."""
+
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
+                                                       self.x, self.y,
+                                                       self.width, self.height)      
+        
 
 

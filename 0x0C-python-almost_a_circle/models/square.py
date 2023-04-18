@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from base import Base
+from models.rectangle import Rectangle
 
 """ inheriting from Rectangle class"""
 
@@ -53,3 +53,6 @@ class Square(Rectangle):
                     self.x = q
                 elif h == "y":
                     self.y = q
+
+    
+   

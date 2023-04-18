@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 
 
+import json
+
 class Base:
 
     """ private attr with value 0 """
@@ -8,16 +10,16 @@ class Base:
 
     """ the base class constructor """
     def __init__(self, id=None):
-
+        
         """ checking for the value of id """
-        if id is not None:
+        if id is not None: 
            self.id = id
 
         else :
-
-           """ incrementing the value of id per instantiation """
+           
+           """ incrementing the value of id per instantiation """   
            Base.__nb_objects += 1
-           self.id = Base.__nb_objects
+           self.id = Base.__nb_objects   
 
 
     """ takes a list of dictionaries as inputs"""
@@ -30,7 +32,7 @@ class Base:
         else:
             """ convert the dictionary to json"""
             return json.dumps(list_dictionaries)
-
+      
     """ convert json string to file"""
     @classmethod
     def save_to_file(cls, list_objs):
@@ -52,7 +54,7 @@ class Base:
         with open(filename, "w") as file:
 
             file.write(Base.to_json_string(objects))
-
+    
     """ convert from json string to dictionary"""
     @staticmethod
     def from_json_string(json_string):
@@ -64,7 +66,7 @@ class Base:
             return []
         else:
             return json.loads(json_string)
-
+    
     """ converts from dictionary to instance """
     @classmethod
     def create(cls, **dictionary):
@@ -81,16 +83,17 @@ class Base:
 
         dummy.update(**dictionary)
 
-        return dummy
+       
 
-    """ convert file to instances """
-    filename = str(cls.__name__) + ".json"
-
-    """ the try catch method"""
-    try:
-            with open(filename, "r") as jsonfile:
-                list_dicts = Base.from_json_string(jsonfile.read())
-                [cls.create(**d) for d in list_dicts]
-    except IOError:
-        []
-
+        """ convert file to instances """
+        filename = str(cls.__name__) + ".json"
+        
+        """ the try catch method"""
+        try:
+                with open(filename, "r") as jsonfile:
+                    list_dicts = Base.from_json_string(jsonfile.read())
+                    [Base.create(**d) for d in list_dicts]
+        except IOError:
+            []
+        return dummy    
+         
