@@ -1,4 +1,2 @@
 #!/usr/bin/node
-const val1 = ' ';
-const val2 = ' ';
-console.log(val1 + 'is' + val2);
+console.log(process.argv[2] + ' is ' + process.argv[3]);
