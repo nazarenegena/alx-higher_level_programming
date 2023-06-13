@@ -2,7 +2,7 @@
 let myCount = 0;
 
 exports.logMe = function (item) {
-  console.log(myCount + ' : ' + item);
+  console.log(myCount + ': ' + item);
   myCount++;
 };
 
