@@ -18,7 +18,7 @@ class Rectangle {
                 stringToDisplay += "\n"
         }
 
-        console.log(stringToDisplay);
+        return stringToDisplay;
     }
 
 }
