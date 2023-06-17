@@ -1,4 +1,4 @@
-#!/usr/bin/python3 
+#!/usr/bin/python3
 """
 State class and Base, an instance of declarative_base()
 """
