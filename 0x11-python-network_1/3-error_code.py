@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-"""script uses
-- the GitHub API for displaying a GitHub ID based on credentials.
+"""script uses:
+- the GitHub API 
+- for displaying a GitHub ID based on credentials.
 """
 import sys
 import requests
