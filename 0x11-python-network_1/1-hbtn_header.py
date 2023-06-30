@@ -1,7 +1,6 @@
 !/usr/bin/python3
-""" the script entails:
-- a URL requirement
-- displays a request value
+"""Fetches https://alx-intranet.hbtn.io/status.
+- urlib package used"
 """
 import sys
 import urllib.request
