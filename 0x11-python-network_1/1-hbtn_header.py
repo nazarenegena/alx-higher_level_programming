@@ -1,20 +1,14 @@
-#!/usr/bin/python3
-"""lists the 10 most recent commits on provided given GitHub repository.
+!/usr/bin/python3
+""" the script entails:
+- a URL requirement
+- displays a request value
 """
 import sys
-import requests
-
+import urllib.request
 
 if __name__ == "__main__":
-    url = "https://api.github.com/repos/{}/{}/commits".format(
-        sys.argv[2], sys.argv[1])
+    url = sys.argv[1]
 
-    res = requests.get(url)
-    commits = res.json()
-    try:
-        for i in range(10):
-            print("{}: {}".format(
-                commits[i].get("sha"),
-                commits[i].get("commit").get("author").get("name")))
-    except IndexError:
-        pass
+    request = urllib.request.Request(url)
+    with urllib.request.urlopen(request) as response:
+        print(dict(response.headers).get("X-Request-Id"))
